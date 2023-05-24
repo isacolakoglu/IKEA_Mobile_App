@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="ÜYE GİRİŞİ"
+             x:Class="IKEAMobil.Views.LoginPage">
+
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Grid VerticalOptions="StartAndExpand" Margin="20" RowSpacing="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Entry Placeholder="Kullanıcı Adı" x:Name="EntryUser" Grid.Row="0"/>
+                    <Entry Placeholder="Şifre" IsPassword="True" x:Name="EntryPassword" Grid.Row="1"/>
+                    <Button Text="Giriş Yap" Grid.Row="2" BackgroundColor="ForestGreen" TextColor="White" Clicked="Button_Clicked_1"/>
+                    <Button Text="Giriş Yap With Firebase" Grid.Row="4" BackgroundColor="Yellow" TextColor="Black" Clicked="Button_Clicked_4"/>
+                    <Button Text="Hemen Üye Ol" Grid.Row="3" BackgroundColor="DimGray" TextColor="White" Clicked="Button_Clicked_3"/>
+                    <Button Text="Hemen Üye Ol With Firebase" Grid.Row="5" BackgroundColor="Black" TextColor="White" Clicked="Button_Clicked"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+    
+    
+    
+    
+    
+    
+    <!--<ScrollView VerticalOptions="StartAndExpand" Padding="0,0,0,0">
+        <StackLayout Padding="0,0,0,0" VerticalOptions="Center" Margin="10,0">
+
+            <Entry Placeholder="E-Posta" x:Name="giris_eposta"></Entry>
+            <Entry Placeholder="Şifre" x:Name="giris_pass" IsPassword="True"></Entry>
+            <Button  VerticalOptions="Center" Padding="0,0,0,0" BackgroundColor="ForestGreen" Text="Giriş Yap" Clicked="Button_Clicked"/>
+            <Button  VerticalOptions="Center" Padding="0,0,0,0" BackgroundColor="Black" Text="Hemen Üye Ol" Clicked="Button_Clicked_1"/>
+            <Button  VerticalOptions="Center" Padding="0,0,0,0" BackgroundColor="Gray" Text="Şifremi Unuttum" TextColor="Black" Clicked="Button_Clicked_2"/>
+            
+        </StackLayout>
+    </ScrollView>-->
+</ContentPage>

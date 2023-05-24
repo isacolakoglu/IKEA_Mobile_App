@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "141594556945",
+    "firebase_url": "https://ikeafirebase-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "ikeafirebase",
+    "storage_bucket": "ikeafirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:141594556945:android:6b9df9d9a0b1d0d0984fb0",
+        "android_client_info": {
+          "package_name": "com.yalova.ikea"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "141594556945-rm0kmgigpnkqqla45rr9518ujn4t1j0o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCodIivq1UTQr32Y8J9l8O1RsxV5kyd-cw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "141594556945-rm0kmgigpnkqqla45rr9518ujn4t1j0o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

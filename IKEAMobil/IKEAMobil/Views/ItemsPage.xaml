@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IKEAMobil.Views.ItemsPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:IKEAMobil.ViewModels"  
+             xmlns:model="clr-namespace:IKEAMobil.Models"  
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             x:Name="BrowseItemsPage">
+
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
+    </ContentPage.ToolbarItems>-->
+    <!--
+      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
+      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
+    -->
+    <StackLayout>
+        <StackLayout>
+            <SearchBar Text="{Binding SearchText}" Placeholder="Ürün Ara" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" BackgroundColor="{DynamicResource NavigationPrimary}">
+            <Button Text="Sıralama" x:Name="sıralama" Command="{Binding Siralama_Clicked_FuncCommand}"  BackgroundColor="#616c70" TextColor="White" HorizontalOptions="FillAndExpand" />
+            <Button x:Name="filtreleme" Text="Filtreleme"  Command="{Binding Filtre_Clicked_FuncCommand}" BackgroundColor="#616c70" TextColor="White" HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+        <StackLayout x:Name="SıralamaMenuus"  IsVisible="{Binding SiralamaMenusuVisible}" BackgroundColor="White">
+            <StackLayout Orientation="Horizontal">
+                <RadioButton Content="Azalan Fiyata Göre Sırala"  IsChecked="{Binding AzalanFiyataGore}" HorizontalOptions="Fill" />
+                <RadioButton Content="Artan Fiyata Göre Sırala"  IsChecked="{Binding ArtanFiyataGore}" HorizontalOptions="Fill" />
+            </StackLayout>
+        </StackLayout>
+        <StackLayout x:Name="FiltreMenusu"  IsVisible="{Binding FiltreMenusuVisible}" BackgroundColor="White">
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="Minimum" Placeholder="Minimum Fiyat" HorizontalOptions="Fill" Keyboard="Numeric" />
+                <Entry x:Name="Maksimum" Placeholder="Maximum Fiyat" HorizontalOptions="Fill" Keyboard="Numeric" />
+                <Button Text="Filtrele" x:Name="Onayla" BackgroundColor="Transparent" />
+
+                <StackLayout Orientation="Vertical" HorizontalOptions="Fill"
+                    BindableLayout.ItemsSource="{Binding Kategoriler}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout>
+                                <Label Text="{Binding .}"/>
+                                <CheckBox IsChecked="False"/>
+                            </StackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+
+        <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
+
+            <CollectionView SelectionMode="None" ItemsSource="{Binding Items}">
+
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="10" x:DataType="model:Urunler">
+                            <Image Source="{Binding UrunFoto}"/>
+                            <Label HorizontalOptions="Center" VerticalOptions="Center" Text="{Binding UrunAd}"/>
+                            <Label HorizontalOptions="Center" VerticalOptions="Center" Text="{Binding UrunFiyat}"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                </TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+    </StackLayout>
+</ContentPage>

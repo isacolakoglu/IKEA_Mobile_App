@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IKEAMobil.Views.BosSepetPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Source="sepetarabasi.png" Scale="1.4"/>
+            <Label Text="Sepetinizde Ürün Yok"
+                   TextColor="Black"
+                   FontSize="23"
+                   FontAttributes="Bold"
+                   VerticalOptions="CenterAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                   Margin="0,45,10,0"
+                   />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

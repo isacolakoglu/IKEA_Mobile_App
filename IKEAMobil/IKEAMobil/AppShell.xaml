@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:IKEAMobil.Views"
+       Title="{Binding Title}"
+       x:Class="IKEAMobil.AppShell">
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="White" />
+                <!--ec95a3-->
+                <Setter Property="Shell.ForegroundColor" Value="Black" />
+                <Setter Property="Shell.TitleColor" Value="Black" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="DarkBlue" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="White"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="Orange"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <TabBar>
+        <ShellContent Title="Anasayfa" Icon="Anasayfa.png" Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+        <ShellContent Title="Ürün Ara" Icon="Search.png" ContentTemplate="{DataTemplate local:ItemsPage}" />
+        <ShellContent Title="Sepetim" Icon="Cart.png" ContentTemplate="{DataTemplate local:SepetPage}" />
+        <ShellContent Title="Üye Girişi" Icon="User.png" ContentTemplate="{DataTemplate local:LoginPage}" />
+        
+    </TabBar>
+
+    <TabBar>
+        <ShellContent Route="LoginPage" ContentTemplate="{DataTemplate local:LoginPage}" />
+    </TabBar>
+
+</Shell>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    <!--<FlyoutItem Title="ANASAYFA" Icon="icon_about.png">
+        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="ÜYE GİRİŞİ" Icon="icon_feed.png">
+        <ShellContent Route="UyeGirisi" ContentTemplate="{DataTemplate local:LoginPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="SEPETİM" Icon="icon_feed.png">
+        <ShellContent Route="Sepetim" ContentTemplate="{DataTemplate local:SepetPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="TÜM ÜRÜNLER" Icon="icon_feed.png">
+        <ShellContent Route="TumUrunler" ContentTemplate="{DataTemplate local:TumUrunler}" />
+    </FlyoutItem>
+    <FlyoutItem Title="MAĞAZA" Icon="icon_feed.png">
+        <ShellContent Route="Magaza" ContentTemplate="{DataTemplate local:Magaza}" />
+    </FlyoutItem>
+    <FlyoutItem Title="ÜRÜN ARA" Icon="icon_feed.png">
+        <ShellContent Route="ItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}" />
+    </FlyoutItem>-->

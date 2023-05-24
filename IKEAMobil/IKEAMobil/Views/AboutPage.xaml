@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IKEAMobil.Views.AboutPage"
+             xmlns:vm="clr-namespace:IKEAMobil.ViewModels"
+             xmlns:local="clr-namespace:IKEAMobil.ViewModels"
+             xmlns:model="clr-namespace:IKEAMobil.Models"
+             Title="{Binding Title}">
+
+    <Shell.TitleView>
+        <AbsoluteLayout BackgroundColor="White" HorizontalOptions="FillAndExpand">
+            <Image Source="IKEALogoBlackBackGround.png" AbsoluteLayout.LayoutBounds="-5,-5,1,1" AbsoluteLayout.LayoutFlags="All" HeightRequest="50" Margin="70,0,0,0" />
+        </AbsoluteLayout>
+    </Shell.TitleView>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems >
+        <ToolbarItem Text="Sepetim" IconImageSource="Cart.png" Command="{Binding SepetimPageDirectCommand}" />
+        <ToolbarItem Text="Ara" IconImageSource="Search.png" Command="{Binding AramaPageDirectCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <!--BANNER KISMI-->
+    <ScrollView Margin="0,10,0,0">
+        <StackLayout >
+            <Frame>
+                <SearchBar Placeholder="Ürün Ara" BackgroundColor="White"/>
+            </Frame>
+
+            <StackLayout Grid.Row="1" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                    <ContentView HeightRequest="200">
+                        <CarouselView x:Name="carousel_Image" ItemsSource="{Binding SliderDS}">
+                            <CarouselView.ItemTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding Uri}"/>
+                                </DataTemplate>
+                            </CarouselView.ItemTemplate>
+                        </CarouselView>
+                    </ContentView>
+                </StackLayout>
+            </StackLayout>
+
+
+            <!--IKEA AÇIKLAMASI -->
+            <StackLayout  Grid.Row="2" HeightRequest="150">
+                <Image HeightRequest="150" 
+                       Source="https://cdn.ikea.com.tr/ozgur-icerik/departmanlar/ana-sayfa/cy21-zuccaciye/magaza-onlemleri-17mayis-w-TR.jpg"/>
+            </StackLayout>
+
+            <!--6 TANE KATEGORİ KISMI-->
+            <StackLayout Grid.Row="3" HeightRequest="600">
+                <CollectionView SelectionMode="None" ItemsSource="{Binding KategorList}">
+
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="1" />
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="0,20,0,0" x:DataType="model:Kategoriler">
+                                <Image Source="{Binding Photo}"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                    </TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+
+
+            <StackLayout  Grid.Row="4">
+                <CollectionView SelectionMode="None" ItemsSource="{Binding UrunlerList}">
+
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" Span="3"/>
+                        <!--HorizontalItemSpacing="5" SnapPointsAlignment="Center" SnapPointsType="MandatorySingle" VerticalItemSpacing="10"-->
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Padding="0,10,15,15" x:DataType="model:Urunler">
+                                <Image Source="{Binding UrunFoto}"/>
+                                <Label HorizontalOptions="Center" VerticalOptions="Center" Text="{Binding UrunAd}"/>
+                                <Label HorizontalOptions="Center" VerticalOptions="Center" Text="{Binding UrunFiyat}"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding ItemTapped}"		
+                                CommandParameter="{Binding .}">
+                                    </TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+            <StackLayout Orientation="Vertical">
+                <Button VerticalOptions="EndAndExpand" Text="Çıkış Yap" TextColor="White" BackgroundColor="DarkBlue" Clicked="Button_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+
+    
+
+</ContentPage>

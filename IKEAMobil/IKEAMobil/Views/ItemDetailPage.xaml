@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="IKEAMobil.Views.ItemDetailPage"
+             Title="{Binding UrunAd}">
+
+    <StackLayout Spacing="20" Padding="15">
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView HeightRequest="200">
+                    <CarouselView x:Name="carousel_Image" ItemsSource="{Binding SliderData}" >
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding Uri}"/>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <Button Text="Whatsapp ile Sipariş Ver" HeightRequest="50" BackgroundColor="Green" TextColor="White"/>
+        <Label Text="Pelinin Ayakkabıları" FontSize="Medium" />
+        <Label Text="{Binding UrunAd}" FontSize="Medium" Margin="0,0,0,10" FontAttributes="Bold"/>
+        <Label Text="{Binding Aciklama}" FontSize="Small" Margin="0,0,0,10"/>
+        <Label Text="{Binding UrunFiyat}" TextColor="DarkBlue" FontSize="Medium"/>
+
+        <StackLayout>
+            <Button  Text="SEPETE EKLE" BackgroundColor="DarkBlue" TextColor="White" Clicked="Button_Clicked" Command="{Binding SepeteEkle}"/>         
+            <Button Text="HEMEN AL" BackgroundColor="DarkBlue" TextColor="White"/>
+        </StackLayout>
+    </StackLayout>
+    
+</ContentPage>
